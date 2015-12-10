@@ -8,11 +8,19 @@ call vundle#begin()
 
 Bundle 'skalnik/vim-vroom'
 
+if &term =~ '^screen'
+	" tmux will send xterm-style keys when its xterm-keys option is on
+	execute "set <xUp>=\e[1;*A"
+	execute "set <xDown>=\e[1;*B"
+	execute "set <xRight>=\e[1;*C"
+	execute "set <xLeft>=\e[1;*D"
+endif
+
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
